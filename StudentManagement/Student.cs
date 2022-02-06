@@ -27,6 +27,7 @@ namespace StudentManagement
             Console.WriteLine(schoolname);
             Console.WriteLine(rollno);
             Console.WriteLine("Sum:={0}", sum);
+            Console.ReadKey();  
         }
     }
 }

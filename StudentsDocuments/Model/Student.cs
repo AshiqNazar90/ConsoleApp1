@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,10 +41,10 @@ namespace StudentsDocuments.Model
         public void Display()
 
         {
-            Console.WriteLine("Your Name is:"+Name);
+            Console.WriteLine("Your Name is:" + Name);
             Console.WriteLine("Rollnumber is:" + RollNum);
             Console.WriteLine("Total is:" + Total);
-            Console.WriteLine("Avg is:"+ Avg);
+            Console.WriteLine("Avg is:" + Avg);
             Console.WriteLine("Successfully FIle Created");
         }
         public void FileWrite()
@@ -55,6 +56,55 @@ namespace StudentsDocuments.Model
             file.WriteLine("Avg is:" + Avg);
             file.Close();
             Console.ReadKey();
+        }
+
+        public void MailSent()
+        {
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+            mail.From = new MailAddress("ashiqnazarss@gmail.com");
+
+
+            mail.To.Add("hashidaashiq2020@gmail.com");
+            mail.Subject = "Test Email";
+            mail.Body = "Hello ";
+
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("ashiqnazarss@gmail.com", "ashioque1");
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
+
+            Console.WriteLine("succesfully Sent your Mail");
+        }
+
+        public void SendOtpmail(string toEmail)
+        {
+            //write code for creating random number
+            //write code for email sending
+            Random random = new Random();
+            int OTP = random.Next(1000, 2000);
+
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+            mail.From = new MailAddress("ashiqnazarss@gmail.com");
+
+
+            mail.To.Add("khanashiq18@gmail.com");
+            mail.Subject = "OTP";
+            mail.Body = OTP.ToString();
+
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("ashiqnazarss@gmail.com", "ashioque1");
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
+
+            Console.WriteLine("succesfully OTP Sent your Mail");
         }
     }
 }

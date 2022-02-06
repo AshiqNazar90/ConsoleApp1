@@ -1,4 +1,4 @@
-﻿using System;
+﻿susing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +20,6 @@ namespace StudentManagement
 
             obj.FindSum();
             obj.DisplaySum();
-            Console.ReadKey();
         }
     }
 }

@@ -12,12 +12,14 @@ namespace StudentsDocuments
         static void Main(string[] args)
         {
             Student obj = new Student();
-            obj.ReadAllData();
-            obj.FindTotal();
-            obj.FindAvg();
-            obj.Display();
-            obj.FileWrite();
-
+            // obj.ReadAllData();
+            //obj.FindTotal();
+            //obj.FindAvg();
+            // obj.Display();
+            //obj.FileWrite();
+            // obj.MailSent();
+            obj.SendOtpmail("success");
+            Console.ReadKey();
 
         }
     }
